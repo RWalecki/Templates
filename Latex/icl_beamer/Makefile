@@ -17,7 +17,5 @@ all:
 	$(BUILDTEX)
 	$(BUILDTEX)
 
-	open build/${PROJECT}.pdf
-	open /Applications/iTerm.app
 clean:
 	rm -rf build/*
