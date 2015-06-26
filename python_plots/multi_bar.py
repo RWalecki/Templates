@@ -15,7 +15,6 @@ def multi_bar(data,
                path='/tmp/test.png'
                ):
 
-
     # initial number of groups, sup groups and colormap
     ##########################################################################
     n_s, n_m = data.shape
