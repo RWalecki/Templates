@@ -36,9 +36,6 @@ def decision_boundary_2d(X,
     ax.xaxis.grid()
     ax.set_title(title)
     plt.savefig(path, bbox_inches='tight')
-    #plt.show()
-    #print xx
-    pass
 
 
 if __name__ == "__main__":
