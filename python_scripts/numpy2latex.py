@@ -1,8 +1,20 @@
 import pandas as pd
 import numpy as np
-form numpy2latex import *
 
-dat = np.random.rand(3,6)
-ylabel = [1, 2, 4, 6, 8, 12]
-xlabel = ['mlr','sor','cor']
-np2tex(dat,xlabel,ylabel,'./build/table.tex')
+def np2tex(dat, xlabel = None, ylabel = None, path = '/tmp/test.tex' ):
+    '''
+    how to use in latex:
+
+        \documentclass{article}
+        \usepackage{booktabs}
+        \begin{document}
+            \input{./table.tex}
+        \end{document}
+
+    '''
+
+    # define precision
+    def format(x):return str(np.int8(x*100)/100.)
+
+    tab = pd.DataFrame(dat,index=xlabel,columns=ylabel)
+    tab.to_latex(buf=path,float_format=format)
