@@ -16,11 +16,11 @@ def label_distribution(data,
                ):
 
     fig, ax = plt.subplots()
-    classes = np.unique(dat)
+    classes = np.unique(data)
 
     c_map = cm.Spectral_r(np.linspace(0, 1, len(classes)*2))
     for i in classes[::-1]:
-        tmp = np.sum(dat<=i,1)
+        tmp = np.sum(data<=i,1)
         plt.bar(range(len(tmp)),tmp,color=c_map[i])
 
 
