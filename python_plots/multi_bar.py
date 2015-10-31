@@ -12,6 +12,7 @@ def multi_bar(data,
                ylim = [],
                legend_size = 12,
                legend_loc = 1,
+               legend_title = '',
                path='/tmp/test.png'
                ):
 
@@ -48,16 +49,24 @@ def multi_bar(data,
 
     # add some text for labels, title and axes ticks
     ##########################################################################
-    ax.set_ylabel(ylabel)
+    ax.set_ylabel(ylabel,fontsize=18)
     ax.yaxis.grid()
-    ax.set_xlabel(xlabel)
-    ax.set_title(title)
+    ax.set_xlabel(xlabel,fontsize=18)
+    ax.set_title(title,fontsize=24)
     ax.set_xticks(ind+width*n_s/2)
     ax.set_xticklabels( m_name )
     if ylim!=[]:ax.set_ylim(ylim)
-    ax.legend( rects, s_name ,fontsize=legend_size,loc = legend_loc)
+    ax.legend( rects,
+              s_name ,
+              fontsize=legend_size,
+              loc='upper left',
+              title=legend_title,
+              bbox_to_anchor=(1, 1.02),
+              ncol=1
+              )
     ##########################################################################
 
+    #plt.show()
     plt.savefig(path, bbox_inches='tight')
 
 
