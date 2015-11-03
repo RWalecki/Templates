@@ -24,14 +24,21 @@ def plot_multi_hist(X,y,
         x_ = X[y==i]
         plt.hist(x_,bins=bins,alpha=0.75,color = c_map[i])
     plt.xlim([x0,x1])
-    plt.xlabel(xlabel,fontsize=22)
-    plt.ylabel(ylabel,fontsize=22)
+    plt.xlabel(xlabel,fontsize=33)
+    plt.ylabel(ylabel,fontsize=33)
+
+    #plt.legend(
+    #loc=3,
+                        #ncol=2, mode="expand", borderaxespad=0.)
+
     legend = plt.legend(labels,
                        fontsize=16,
+                        bbox_to_anchor=(0.06, 1, 1.,0),
                        loc = legend_loc,
                        title=legend_title,
-                       ncol=2,
+                       ncol=5,
                        fancybox=True, shadow=False)
-    plt.tick_params(axis='both', which='major', labelsize=16)
+    plt.tick_params(axis='both', which='major', labelsize=33)
+    plt.ticklabel_format(style='sci', axis='y', scilimits=(0,1))
 
     legend.get_title().set_fontsize(22)

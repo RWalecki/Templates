@@ -36,33 +36,34 @@ def plot_corr_mat(
 
     ax.set_xticklabels( xname )
     ax.set_xticks( range(N) )
-    ax.set_xlabel(xlabel,fontsize=22)
+    ax.set_xlabel(xlabel)
 
     ax.set_yticklabels( xname )
-    ax.set_yticks( range(N) )
-    ax.set_ylabel(xlabel,fontsize=22)
+    ax.set_yticks( range(N))
+    ax.set_ylabel(xlabel)
 
-    plt.tick_params(axis='both', which='major', labelsize=16)
+    plt.tick_params(axis='both', which='major', labelsize=20)
 
     min_val, max_val = 0, corr_mat.shape[0]
     ind_array = np.arange(min_val, max_val, 1.0)
     x, y = np.meshgrid(ind_array, ind_array)
 
+
     for i, (x_val, y_val) in enumerate(zip(x.flatten(), y.flatten())):
         #if x_val>=y_val:continue
         val = corr_mat[x_val,y_val]
         if val==0:continue
-        c = np.int32(val*100)/100.
-        if val<=-0.4:
-            ax.text(x_val, y_val, c, va='center', ha='center',size=10,color='white')
+        c = np.int32(val*10)/10.
+        if val<=-0.4 or val>0.6:
+            ax.text(x_val, y_val, c, va='center', ha='center',color='white',fontsize=13)
         else:
-            ax.text(x_val, y_val, c, va='center', ha='center',size=10,color='black')
+            ax.text(x_val, y_val, c, va='center', ha='center',color='black',fontsize=13)
 
 
     if highlight!=None:
         for i1,i2 in highlight:
             #if i2>=i1:continue
-            ax.add_patch(Rectangle((i2-0.5, i1-0.5), 1, 1, fill=None, alpha=1,linewidth=4,color='k'))
+            ax.add_patch(Rectangle((i2-0.5, i1-0.5), 1, 1, fill=None, alpha=1,linewidth=6,color='g'))
     for i1 in range(col.shape[0]):
         for i2 in range(col.shape[0]):
             #if i2>=i1:continue

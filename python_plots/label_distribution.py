@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.cm as cm
 
 def label_distribution(data,
                m_name='',
@@ -28,9 +29,10 @@ def label_distribution(data,
     ax.set_xticklabels( xname ,fontsize=18)
     ax.set_xticks( np.arange(len(xname))+0.4 )
     plt.grid(True)
-    plt.tick_params(axis='both', which='major', labelsize=16)
-    ax.set_xlabel(xlabel,fontsize=22)
-    ax.set_ylabel(ylabel,fontsize=22)
+    plt.tick_params(axis='both', which='major', labelsize=28)
+    ax.set_xlabel(xlabel,fontsize=30)
+    ax.set_ylabel(ylabel,fontsize=30)
+    plt.ticklabel_format(style='sci', axis='y', scilimits=(0,1))
     box = ax.get_position()
 
     # Put a legend to the right of the current axis
